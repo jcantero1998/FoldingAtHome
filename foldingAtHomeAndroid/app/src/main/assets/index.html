@@ -1,0 +1,727 @@
+<?php
+   //*********TOTAL USUARIOS*******
+   $urlUsuarios = "https://api.foldingathome.org/user-count"; 
+   $chUsuarios = curl_init($urlUsuarios); 
+   curl_setopt($chUsuarios, CURLOPT_RETURNTRANSFER, true); 
+   curl_setopt($chUsuarios, CURLOPT_SSL_VERIFYPEER, false); 
+   $datosUsuarios = json_decode(curl_exec($chUsuarios));
+   
+   //***** TOTAL EQUIPOS**********
+   $urlEquipos = "https://api.foldingathome.org/team/count"; 
+   $chEquipos = curl_init($urlEquipos); 
+   curl_setopt($chEquipos, CURLOPT_RETURNTRANSFER, true); 
+   curl_setopt($chEquipos, CURLOPT_SSL_VERIFYPEER, false); 
+   $datosEquipos = json_decode(curl_exec($chEquipos));
+   
+   //***** Donante top 1**********
+   $urlDonante = "https://stats.foldingathome.org/api/donors"; 
+   $chDonante = curl_init($urlDonante); 
+   curl_setopt($chDonante, CURLOPT_RETURNTRANSFER, true); 
+   curl_setopt($chDonante, CURLOPT_SSL_VERIFYPEER, false); 
+   $datosDonante = json_decode(curl_exec($chDonante));
+   
+   //**** equipo top 1 *********
+   $urlTeam = "https://stats.foldingathome.org/api/teams"; 
+   $chTeam = curl_init($urlTeam); 
+   curl_setopt($chTeam, CURLOPT_RETURNTRANSFER, true); 
+   curl_setopt($chTeam, CURLOPT_SSL_VERIFYPEER, false); 
+   $datosTeam = json_decode(curl_exec($chTeam));
+   
+   ?>
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <meta content="" name="descriptison">
+      <meta content="" name="keywords">
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon">
+      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+      <!-- Vendor CSS Files -->
+      <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+      <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+      <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+      <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+      <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+      <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+      <!-- Template Main CSS File -->
+      <link href="assets/css/style.css" rel="stylesheet">
+   </head>
+   <body>
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top ">
+         <div class="container-fluid d-flex align-items-center justify-content-between">
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <nav class="nav-menu d-none d-lg-block">
+               <ul>
+                  <li class="active"><a href="index.php">Inicio</a></li>
+                  <li><a href="#instalacion">Instalación</a></li>
+                  <li><a href="#idea">La idea</a></li>
+                  <li><a href="#about-boxes">Sobre nosotros</a></li>
+                  <li><a href="#clients">Clients</a></li>
+                  <li><a href="#features">Features</a></li>
+                  <li><a href="#covid">Covid-19</a></li>
+                  <li><a href="#api">Estadísticas</a></li>
+                  <li><a href="#testimonials">Testimonials</a></li>
+                  <li><a href="#team">Team</a></li>
+                  <li><a href="#contact">Contact</a></li>
+               </ul>
+            </nav>
+            <!-- .nav-menu -->
+            <a href="#instalacion" class="get-started-btn scrollto">DESCARGA EL PROGRAMA</a>
+         </div>
+      </header>
+      <!-- End Header -->
+      <!-- ======= Hero Section ======= -->
+      <section id="hero">
+         <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+            <h1>Folding at Home</h1>
+            <h2>Cómo tú puedes ayudar con el Covid-19 y otras enfermedades</h2>
+         </div>
+      </section>
+      <!-- End Hero -->
+      <main id="main">
+
+         <!--VIDEO DE LA INSTALACIÓN-->
+         <section id="instalacion" class="about">
+            <div class="container" data-aos="fade-up">
+            <div class="row justify-content-end">
+            <div class="col-lg-11">
+               <div class="row">
+                  <div class="col-lg-6 align-self-center embed-responsive embed-responsive-16by9">
+                     <video controls class="fluid" src="assets/videos/instalacion.mp4">
+                        Your browser does not support the video tag.
+                     </video>
+                  </div>
+                  <div class="col-lg-6 pt-3 pt-lg-0 content">
+                     <h3>INSTALACIÓN BÁSICA DE PA APLICACIÓN</h3>
+                     <p class="font-italic">
+                        Al descargar la aplicación, nos está proporcionando la potencia que necesitamos para encontrar nuevas curas. Y al correr la voz, le está dando a más personas la oportunidad de contribuir.
+                     </p>
+                     <ul>
+                        <li><i class="bx bx-check-double"></i> Descargue la aplicación desde
+                           <a href="https://foldingathome.org/start-folding" target="_blank">https://foldingathome.org/start-folding</a>
+                        </li>
+                        <li><i class="bx bx-check-double"></i> Ejecute el instalador</li>
+                        <li><i class="bx bx-check-double"></i> Pulse en "Express install"</li>
+                        <li><i class="bx bx-check-double"></i> Finalmente se abrirá la aplicación</li>
+                     </ul>
+                     <p>
+                        Si lo prefiere, pude descargar la aplicación para Windows pinchando
+                        <a href="assets/app/fah-installer_7.6.13_x86.exe" download>
+                        aquí 
+                        </a>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End About Section -->
+         <!--Conferencia-->
+         <section id="idea" class="about">
+            <div class="container" data-aos="fade-up">
+            <div class="row justify-content-end">
+            <div class="col-lg-11">
+               <div class="row">
+                  <div class="col-lg-6 pt-3 pt-lg-0 content">
+                     <h3>LA IDEA DE LA PÁGINA WEB</h3>
+                     <p class="font-italic">
+                        Desde Cuatrovientos pensamos que era buena idea dar a conocer el trabajo realizado por Folding At Home, creando una pagina web enlazada con 
+                        <a href="http://www.cuatrovientos.org" download>http://www.cuatrovientos.org</a> para que así, más personas puedan contribuir a buscar la cura de diferentes enfermedades como el COVID19.
+                     </p>
+                     <p>
+                        Por la situación en la que nos encontrabamos a causa de la pandemia, no pudimos mandar a nuestros alumnos a realizar las FCT. Así que decidimos que los alumnos del ciclo "Administración de Sistemas Informaticos en Red" y los alumnos del ciclo "Desarrollo de Aplicacines Multiplataforma" colaborasen juntos para realizar esta página web. 
+                     </p>
+                     <P> 
+                        En la siguiente videoconferencia se puede ovservar algunas de las decisiónes que tomamos mientras llevabamos a cabo la realización de la página web.
+                     </P>
+                  </div>
+                  <div class="col-lg-6 align-self-center embed-responsive embed-responsive-16by9">
+                     <video controls class="fluid" src="assets/videos/conferencia.mp4">
+                        Your browser does not support the video tag.
+                     </video>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End Conferencia Section -->
+         <!-- ======= About Boxes Section ======= -->
+         <section id="about-boxes" class="about-boxes">
+            <div class="container" data-aos="fade-up">
+               <div class="row">
+                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                     <div class="card">
+                        <img src="assets/img/folding.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                           <h5 class="card-title"><a href="">¿Qué es el Folding?</a></h5>
+                           <p class="card-text">Folding at home, es un proyecto de computación creado para poder simular los enlaces de las proteinas y sus pliegues (en inglés Folding), en una variedad de enfermermedades. Esto sirve de ayuda a los científicos para entender mejor la biología detrás de estas enfermedades, y así poder desarrollar mejores tratamientos para estas.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                     <div class="card">
+                        <img src="assets/img/fondo2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                           <h5 class="card-title"><a href="">¿Cómo colaborar?</a></h5>
+                           <p class="card-text">Al descargar y ejecutar el programa, cualquier voluntario puede donar parte de la capacidad de su ordenador para ayudar con los cálculos en las simulaciones y se puede regular para que no afecte al rendimiento de los componentes.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                     <div class="card">
+                        <img src="assets/img/coronavirus.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                           <h5 class="card-title"><a href="">¿En qué enfermedades se puede ayudar?</a></h5>
+                           <p class="card-text">Se pueden donar recursos para distintas enfermedades, las cuales son:
+                              Cáncer de mama, riñon, epigenético y el p53; fiebre del Dengue, enfermedad de Chagas, virus Zika, Hepatitis C y el Ébola; y otras enfermedades como el Alzheimer, Huntington y Parkinson
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End About Boxes Section -->
+            <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client1.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client2.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client5.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client6.png" class="img-fluid" alt="">
+          </div>
+           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client7.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client8.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="assets/img/clients/client9.png" class="img-fluid" alt="">
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+         <!-- ======= Features Section ======= -->
+         <section id="features" class="features">
+            <div class="container" data-aos="fade-up">
+               <ul class="nav nav-tabs row d-flex">
+                  <li class="nav-item col-3">
+                     <a class="nav-link active show" data-toggle="tab" href="#tab-1">
+                        <i class="ri-gps-line"></i>
+                        <h4 class="d-none d-lg-block">Modi sit est dela pireda nest</h4>
+                     </a>
+                  </li>
+                  <li class="nav-item col-3">
+                     <a class="nav-link" data-toggle="tab" href="#tab-2">
+                        <i class="ri-body-scan-line"></i>
+                        <h4 class="d-none d-lg-block">Unde praesenti mara setra le</h4>
+                     </a>
+                  </li>
+                  <li class="nav-item col-3">
+                     <a class="nav-link" data-toggle="tab" href="#tab-3">
+                        <i class="ri-sun-line"></i>
+                        <h4 class="d-none d-lg-block">Pariatur explica nitro dela</h4>
+                     </a>
+                  </li>
+                  <li class="nav-item col-3">
+                     <a class="nav-link" data-toggle="tab" href="#tab-4">
+                        <i class="ri-store-line"></i>
+                        <h4 class="d-none d-lg-block">Nostrum qui dile node</h4>
+                     </a>
+                  </li>
+               </ul>
+               <div class="tab-content">
+                  <div class="tab-pane active show" id="tab-1">
+                     <div class="row">
+                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                           <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                           <p class="font-italic">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                              magna aliqua.
+                           </p>
+                           <ul>
+                              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                           </ul>
+                           <p>
+                              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                              culpa qui officia deserunt mollit anim id est laborum
+                           </p>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 text-center">
+                           <img src="assets/img/features-1.png" alt="" class="img-fluid">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-pane" id="tab-2">
+                     <div class="row">
+                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                           <h3>Neque exercitationem debitis soluta quos debitis quo mollitia officia est</h3>
+                           <p>
+                              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                              culpa qui officia deserunt mollit anim id est laborum
+                           </p>
+                           <p class="font-italic">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                              magna aliqua.
+                           </p>
+                           <ul>
+                              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                              <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</li>
+                              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                           </ul>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 text-center">
+                           <img src="assets/img/features-2.png" alt="" class="img-fluid">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-pane" id="tab-3">
+                     <div class="row">
+                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                           <h3>Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
+                           <p>
+                              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                              culpa qui officia deserunt mollit anim id est laborum
+                           </p>
+                           <ul>
+                              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                              <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</li>
+                           </ul>
+                           <p class="font-italic">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                              magna aliqua.
+                           </p>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 text-center">
+                           <img src="assets/img/features-3.png" alt="" class="img-fluid">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-pane" id="tab-4">
+                     <div class="row">
+                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                           <h3>Omnis fugiat ea explicabo sunt dolorum asperiores sequi inventore rerum</h3>
+                           <p>
+                              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                              culpa qui officia deserunt mollit anim id est laborum
+                           </p>
+                           <p class="font-italic">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                              magna aliqua.
+                           </p>
+                           <ul>
+                              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                           </ul>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 text-center">
+                           <img src="assets/img/features-4.png" alt="" class="img-fluid">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End Features Section -->
+         <!-- ======= Services Section ======= -->
+         <section id="covid" class="services section-bg">
+            <div class="container" data-aos="fade-up">
+               <div class="section-title">
+                  <h2>Sobre el Covid-19</h2>
+               </div>
+               <div class="row" data-aos="fade-up" data-aos-delay="200">
+                  <div class="col-md-6">
+                     <div class="icon-box">
+                        <i class="icofont-computer"></i>
+                        <h4><a href="#">Lorem Ipsum</a></h4>
+                        <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                     </div>
+                  </div>
+                  <div class="col-md-6 mt-4 mt-md-0">
+                     <div class="icon-box">
+                        <i class="icofont-chart-bar-graph"></i>
+                        <h4><a href="#">Dolor Sitema</a></h4>
+                        <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                     </div>
+                  </div>
+                  <div class="col-md-6 mt-4 mt-md-0">
+                     <div class="icon-box">
+                        <i class="icofont-image"></i>
+                        <h4><a href="#">Sed ut perspiciatis</a></h4>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                     </div>
+                  </div>
+                  <div class="col-md-6 mt-4 mt-md-0">
+                     <div class="icon-box">
+                        <i class="icofont-settings"></i>
+                        <h4><a href="#">Nemo Enim</a></h4>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                     </div>
+                  </div>
+                  <div class="col-md-6 mt-4 mt-md-0">
+                     <div class="icon-box">
+                        <i class="icofont-earth"></i>
+                        <h4><a href="#">Magni Dolore</a></h4>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                     </div>
+                  </div>
+                  <div class="col-md-6 mt-4 mt-md-0">
+                     <div class="icon-box">
+                        <i class="icofont-tasks-alt"></i>
+                        <h4><a href="#">Eiusmod Tempor</a></h4>
+                        <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End Services Section -->
+
+         <!-- ======= LEEMOS LAS APIS DE ESTADISTICAS ======= -->
+         <section id="api" class="about">
+            <div class="container" data-aos="fade-up">
+               <div class="row justify-content-end">
+                  <div class="col-lg-11">
+                     <div class="content text-center">
+                        <h3>ESTADÍSTICAS GENERALES</h3>
+                     </div>
+                     <div class="row justify-content-end">
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                           <div class="count-box">
+                              <i class="icofont-simple-smile"></i>               
+                              <span data-toggle="counter-up" id="num"><?=$datosUsuarios?></span>
+                              <p>Usuarios Totales</p>
+                           </div>
+                        </div>
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                           <div class="count-box">
+                              <i class="icofont-document-folder"></i>
+                              <span data-toggle="counter-up"><?=$datosEquipos?></span>
+                              <p>Equipos Totales</p>
+                           </div>
+                        </div>
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                           <div class="count-box">
+                              <i class="icofont-clock-time"></i>
+                              <?php
+                                 $i = 0;
+                                 foreach($datosTeam->results as $Dato) {
+                                 $i++;
+                                 if($i==1){
+                                   ?> <span><?=$Dato->name?></span>
+                              <p>Equipo que más ha donado</p>
+                              <?php
+                                 }
+                                 ?>                  
+                              <?php } ?>
+                           </div>
+                        </div>
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                           <div class="count-box">
+                              <i class="icofont-award"></i>
+                              <?php
+                                 $i = 0;
+                                 foreach($datosDonante->results as $Dato) {
+                                 $i++;
+                                 if($i==1){
+                                   ?> <span><?=$Dato->name?></span>
+                              <p>Donante que más a donado</p>
+                              <?php
+                                 }
+                                 ?>                  
+                              <?php } ?>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End API Section -->
+         <!-- ======= Testimonials Section ======= -->
+         <section id="testimonials" class="testimonials">
+            <div class="container" data-aos="zoom-in">
+               <div class="owl-carousel testimonials-carousel">
+                  <div class="testimonial-item">
+                     <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                     <h3>Saul Goodman</h3>
+                     <h4>Ceo &amp; Founder</h4>
+                     <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                     </p>
+                  </div>
+                  <div class="testimonial-item">
+                     <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                     <h3>Sara Wilsson</h3>
+                     <h4>Designer</h4>
+                     <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                     </p>
+                  </div>
+                  <div class="testimonial-item">
+                     <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                     <h3>Jena Karlis</h3>
+                     <h4>Store Owner</h4>
+                     <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                     </p>
+                  </div>
+                  <div class="testimonial-item">
+                     <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                     <h3>Matt Brandon</h3>
+                     <h4>Freelancer</h4>
+                     <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                     </p>
+                  </div>
+                  <div class="testimonial-item">
+                     <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                     <h3>John Larson</h3>
+                     <h4>Entrepreneur</h4>
+                     <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End Testimonials Section -->
+        <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>COMMUNICATION ADVISORY BOARD</h2>
+          <p>Board members</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/equi-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Anton Thynell</h4>
+                <span>Chairman of the Board</span>
+                <!--<div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/equipo2.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Antoine Emond</h4>
+                <span>Massive Entertainment, Ubisoft</span>
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/equipo3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Jonas Gustavsson</h4>
+                <span>Head of Devtech Engineering Europe, AMD</span>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/equi-4.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Pedro Valadas</h4>
+                <span>Founder, PCMR</span>
+               
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+         <!-- ======= Contact Section ======= -->
+         <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up"">
+               <div class=" section-title">
+                  <h2>Contacto</h2>
+                  <p>Contacta con nostros</p>
+               </div>
+               <div class="row">
+                  <div class="col-lg-7">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="info-box">
+                              <i class="bx bx-envelope"></i>
+                              <h3>Do you want to report a security vulnerability?</h3>
+                              <p>Email Joseph: joseph@cauldrondevelopment.com</p>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="info-box mt-4">
+                              <i class="bx bx-envelope"></i>
+                              <h3>Does your company want to help us?</h3>
+                              <p>Email Anton: thynell@stanford.edu</p>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="info-box mt-4">
+                              <i class="bx bx-envelope"></i>
+                              <h3>Media inquiry?</h3>
+                              <p>Email Anton: thynell@stanford.edu</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               
+
+                   <div class="col-lg-5 mt-4 mt-lg-0">
+                        <div  class="info-box">
+                           <h3>Do you have technical problems with the client(app)?</h3>
+
+
+                           <ul class="list-group">
+                             <li class="list-group-item list-group-item-dark ">Tech support is found at:</li>
+                             <li class="list-group-item"><a href="https://discord.com/invite/97Z2wBF">Discord</a></li>
+                             <li class="list-group-item"><a href="https://foldingathome.org/">Foldingforum.org</a></li>
+                             <li class="list-group-item list-group-item-dark">Do you want to report a client issue or bug?"</li>
+                             <li class="list-group-item"><a href="https://github.com/FoldingAtHome/fah-issues/issues">Github</a></li>
+                           </ul>
+                       </div>
+
+                  </div>
+
+               
+               </div>
+            </div>
+         </section>
+         <!-- End Contact Section -->
+      </main>
+      <!-- End #main -->
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+         <div class="footer-top">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-3 col-md-6">
+                     <div class="footer-info">
+                        <strong>Email:</strong> info@example.com<br>
+                        <div class="social-links mt-3">
+                           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                           <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                           <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-2 col-md-6 footer-links">
+                     <h4>Useful Links</h4>
+                     <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-lg-3 col-md-6 footer-links">
+                     <h4>Our Services</h4>
+                     <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-lg-4 col-md-6 footer-newsletter">
+                     <h4>Our Newsletter</h4>
+                     <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                     <form action="" method="post">
+                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container">
+         </div>
+      </footer>
+      <!-- End Footer -->
+      <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+      <div id="preloader"></div>
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/jquery/jquery.min.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+      <script src="assets/vendor/counterup/counterup.min.js"></script>
+      <script src="assets/vendor/venobox/venobox.min.js"></script>
+      <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/aos/aos.js"></script>
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
+   </body>
+</html>
